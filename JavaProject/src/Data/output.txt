@@ -1,0 +1,28 @@
+Execution Stack:
+(variable declaration name:v and type: int;(v=2;print(v)))
+
+
+Execution Stack:
+variable declaration name:v and type: int
+System Table:
+
+
+Execution Stack:
+(v=2;print(v))
+System Table:
+[v,0]
+
+
+Execution Stack:
+v=2
+System Table:
+[v,0]
+
+
+Execution Stack:
+print(v)
+System Table:
+[v,2]
+
+
+Output:2

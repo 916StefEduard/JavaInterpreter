@@ -1,0 +1,40 @@
+Execution Stack:
+(variable declaration name:v and type: int;(open file:input.txt;(read data for variable:v from file:input.txt;print(v))))
+
+
+Execution Stack:
+variable declaration name:v and type: int
+System Table:
+
+
+Execution Stack:
+(open file:input.txt;(read data for variable:v from file:input.txt;print(v)))
+System Table:
+[v,0]
+
+
+Execution Stack:
+open file:input.txt
+System Table:
+[v,0]
+
+
+Execution Stack:
+(read data for variable:v from file:input.txt;print(v))
+System Table:
+[v,0]
+
+
+Execution Stack:
+read data for variable:v from file:input.txt
+System Table:
+[v,0]
+
+
+Execution Stack:
+print(v)
+System Table:
+[v,1000]
+
+
+Output:1000
