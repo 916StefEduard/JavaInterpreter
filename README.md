@@ -11,3 +11,6 @@ chained value of those statements and computes and prints the correct result. (A
 
 This code will execute the statements one by one showing the ExecutionStack and SystemTable(table of variables and their assigned values)
 as well as HeapTable(what are the values in the heap) and FileTable(what files are opened)
+
+
+![image](https://user-images.githubusercontent.com/72076037/145273806-49387dea-3281-4331-98af-f7bab62d7721.png)
