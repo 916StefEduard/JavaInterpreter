@@ -9,3 +9,5 @@ chained value of those statements and computes and prints the correct result. (A
 
 ![image](https://user-images.githubusercontent.com/72076037/145272745-a43ee153-850c-4342-9c15-00897137fcdf.png)
 
+This code will execute the statements one by one showing the ExecutionStack and SystemTable(table of variables and their assigned values)
+as well as HeapTable(what are the values in the heap) and FileTable(what files are opened)
