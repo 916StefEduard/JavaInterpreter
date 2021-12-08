@@ -17,7 +17,7 @@ They will be executed one by one each time the current statement that is execute
 system tables such as the SystemTable (a table of variables with their assigned values), HeapTable (with their heap values and addresses),
 FileTable (the name of the files that are opened)
 
-
+# Second Code Example
 
 ![image](https://user-images.githubusercontent.com/72076037/145274983-2ec3f34a-90cd-4d7a-bdfb-6fc2ca487ffc.png)
 ![image](https://user-images.githubusercontent.com/72076037/145275197-af3e47be-7f27-43df-ade1-c467b84bb18d.png)
