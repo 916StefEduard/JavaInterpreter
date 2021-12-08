@@ -14,3 +14,5 @@ as well as HeapTable(what are the values in the heap) and FileTable(what files a
 
 
 ![image](https://user-images.githubusercontent.com/72076037/145274983-2ec3f34a-90cd-4d7a-bdfb-6fc2ca487ffc.png)
+![image](https://user-images.githubusercontent.com/72076037/145275033-238c2259-d7be-4145-908d-2f5c92324fc7.png)
+
