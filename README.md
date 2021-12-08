@@ -5,5 +5,5 @@ IfStatement, AssignStatement and CompareStatement, just to name a few have been 
 The coded Interpreter takes a chained value of those statements and computes and prints the correct result. (Also prints the steps taken) 
 
 
- -variable declaration:a,type:int;variable declaration:b,type:int;a=2 + 3 * 5;b=a + 1;print(b)-
  
+![image](https://user-images.githubusercontent.com/72076037/145272548-98803165-fe4f-47ff-bd58-94748e0ab88e.png)
