@@ -13,4 +13,4 @@ This code will execute the statements one by one showing the ExecutionStack and 
 as well as HeapTable(what are the values in the heap) and FileTable(what files are opened)
 
 
-![image](https://user-images.githubusercontent.com/72076037/145273806-49387dea-3281-4331-98af-f7bab62d7721.png)
+![image](https://user-images.githubusercontent.com/72076037/145274075-f84de3be-32dc-405b-bb1b-90d7e6f6ba5f.png)
