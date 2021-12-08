@@ -5,5 +5,5 @@ IfStatement, AssignStatement and CompareStatement, just to name a few have been 
 The coded Interpreter takes a chained value of those statements and computes and prints the correct result. (Also prints the steps taken) 
 
 
- 
-![image](https://user-images.githubusercontent.com/72076037/145272548-98803165-fe4f-47ff-bd58-94748e0ab88e.png)
+
+![image](https://user-images.githubusercontent.com/72076037/145272745-a43ee153-850c-4342-9c15-00897137fcdf.png)
