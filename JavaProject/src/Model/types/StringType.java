@@ -20,8 +20,8 @@ public class StringType implements IType{
     }
 
     @Override
-    public String getType() {
-        return "string";
+    public IType getType() {
+        return new StringType();
     }
 
     @Override

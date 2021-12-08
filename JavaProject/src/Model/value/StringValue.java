@@ -24,7 +24,7 @@ public class StringValue implements IValue{
 
     @Override
     public IType getType() {
-        return new StringType();
+        return new StringType().getType();
     }
 
     @Override

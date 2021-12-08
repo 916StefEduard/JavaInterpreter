@@ -6,4 +6,5 @@ public interface IList<T> {
     String toString();
     boolean empty();
     void clear();
+    boolean contains(T key);
 }

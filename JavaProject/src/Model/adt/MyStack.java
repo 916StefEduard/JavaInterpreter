@@ -18,6 +18,23 @@ public class MyStack<T> implements IStack<T> {
     }
 
     @Override
+    public T top(){
+        if(stack.size() != 0)
+            return stack.get(stack.size()-1);
+        else
+            return null;
+    }
+
+    public MyStack<T> reverse() {
+        var newStack = new MyStack<T>();
+        var copyStack = this.stack;
+        while(!copyStack.isEmpty()){
+            newStack.push(copyStack.pop());
+        }
+        return newStack;
+    }
+
+    @Override
     public void push(T v) {
         stack.push(v);
     }
@@ -25,5 +42,10 @@ public class MyStack<T> implements IStack<T> {
     @Override
     public boolean isEmpty() {
         return stack.isEmpty();
+    }
+
+    @Override
+    public int getSize() {
+        return this.stack.size();
     }
 }

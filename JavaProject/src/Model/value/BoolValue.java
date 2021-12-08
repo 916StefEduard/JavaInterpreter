@@ -34,7 +34,7 @@ public class BoolValue implements IValue{
 
     @Override
     public IType getType() {
-        return new BoolType();
+        return new BoolType().getType();
     }
 
     @Override

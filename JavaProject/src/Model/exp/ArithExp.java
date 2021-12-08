@@ -1,11 +1,14 @@
 package Model.exp;
 import Model.adt.IDict;
+import Model.adt.IHeap;
+import Model.types.IType;
 import Model.types.IntType;
 import Model.value.IValue;
 import Model.value.IntValue;
 import Exception.DivisionByZeroException;
 import Exception.InvalidOperandException;
-import Model.value.StringValue;
+
+import java.lang.reflect.Type;
 
 public class ArithExp implements Exp{
     char op;
@@ -17,12 +20,12 @@ public class ArithExp implements Exp{
         this.e2 = e2;
     }
 
-    public IValue eval(IDict<String, IValue> symTable) throws Exception {
+    public IValue eval(IDict<String, IValue> symTable, IHeap<Integer, IValue> heap) throws Exception {
         IValue v1,v2;
-        v1 = e1.eval(symTable);
-        if(v1.getType().equals(new IntType())){
-            v2 = e2.eval(symTable);
-            if(v2.getType().equals(new IntType())){
+        v1 = e1.eval(symTable,heap);
+        if(v1.getType().equals(new IntType().getType())){
+            v2 = e2.eval(symTable,heap);
+            if(v2.getType().equals(new IntType().getType())){
                 IntValue i1 = (IntValue) v1;
                 IntValue i2 = (IntValue) v2;
                 int n1,n2;
@@ -61,5 +64,21 @@ public class ArithExp implements Exp{
 
     public String toString() {
         return e1.toString() + " " + op + " " + e2.toString();
+    }
+
+    @Override
+    public IType typeCheck(IDict<String, IType> typeEnv) throws Exception {
+        IType typ1,typ2;
+        typ1 = e1.typeCheck(typeEnv);
+        typ2 = e2.typeCheck(typeEnv);
+        if(typ1.equals(new IntType())){
+            if(typ2.equals(new IntType())){
+                return new IntType();
+            }else{
+                throw new Exception("Second operand is not an integer\n");
+            }
+        }else{
+            throw new Exception("First operand is not an integer\n");
+        }
     }
 }

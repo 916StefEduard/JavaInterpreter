@@ -14,6 +14,8 @@ public class List<T> implements IList<T> {
         list.add(v);
     }
 
+
+
     @Override
     public T pop() throws ListException {
         if(this.list.isEmpty())
@@ -39,5 +41,10 @@ public class List<T> implements IList<T> {
     @Override
     public void clear(){
         this.list.clear();
+    }
+
+    @Override
+    public boolean contains(T key) {
+        return this.list.contains(key);
     }
 }

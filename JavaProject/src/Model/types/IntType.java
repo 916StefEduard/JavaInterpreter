@@ -20,8 +20,8 @@ public class IntType implements IType{
     }
 
     @Override
-    public String getType() {
-        return "int";
+    public IType getType() {
+        return new IntType();
     }
 
     @Override

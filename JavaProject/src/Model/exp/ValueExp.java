@@ -1,8 +1,9 @@
 package Model.exp;
 import Exception.*;
 import Model.adt.IDict;
+import Model.adt.IHeap;
+import Model.types.IType;
 import Model.value.IValue;
-import Model.value.StringValue;
 
 public class ValueExp implements Exp{
     IValue v;
@@ -12,7 +13,7 @@ public class ValueExp implements Exp{
     }
 
     @Override
-    public IValue eval(IDict<String, IValue> symTable) throws Exception {
+    public IValue eval(IDict<String, IValue> symTable, IHeap<Integer, IValue> heap) throws Exception {
         if(v == null)
             throw new InvalidOperandException("number does not exist!");
         return v;
@@ -21,5 +22,10 @@ public class ValueExp implements Exp{
     @Override
     public String toString() {
         return  v.toString();
+    }
+
+    @Override
+    public IType typeCheck(IDict<String, IType> typeEnv) throws Exception {
+        return v.getType();
     }
 }

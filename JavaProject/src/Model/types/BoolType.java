@@ -20,8 +20,8 @@ public class BoolType implements IType{
     }
 
     @Override
-    public String getType() {
-        return "bool";
+    public IType getType() {
+        return new BoolType();
     }
 
     @Override

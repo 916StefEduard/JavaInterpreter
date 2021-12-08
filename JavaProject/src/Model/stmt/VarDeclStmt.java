@@ -1,6 +1,7 @@
 package Model.stmt;
 import Exception.*;
 import Model.PrgState;
+import Model.adt.IDict;
 import Model.adt.List;
 import Model.types.IType;
 import Model.value.IValue;
@@ -21,11 +22,8 @@ public class VarDeclStmt implements IStmt{
         var stack = state.getStack();
         if(stack.isEmpty())
             throw new StatementException("stack is empty");
-        if(!Objects.equals(this.type.getType(), "int") && !Objects.equals(this.type.getType(), "bool")){
-            throw new InputException("invalid type");
-        }
         output.add(this.name,this.type.defaultValue());
-        return state;
+        return null;
     }
 
     @Override
@@ -33,7 +31,18 @@ public class VarDeclStmt implements IStmt{
         return new VarDeclStmt(name,type);
     }
 
+    @Override
+    public String getStatement() {
+        return "vardeclaration";
+    }
+
+    @Override
+    public IDict<String, IType> typeCheck(IDict<String, IType> typeEnv) throws Exception {
+        typeEnv.add(name,type);
+        return typeEnv;
+    }
+
     public String toString(){
-        return "variable declaration name:" + this.name + " and type: " + this.type;
+        return "variable declaration:" + this.name + ",type:" + this.type;
     }
 }

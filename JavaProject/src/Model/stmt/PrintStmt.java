@@ -2,9 +2,9 @@ package Model.stmt;
 
 
 import Model.PrgState;
-import Model.adt.List;
+import Model.adt.IDict;
 import Model.exp.Exp;
-import Model.value.IValue;
+import Model.types.IType;
 
 public class PrintStmt implements IStmt{
 
@@ -16,14 +16,26 @@ public class PrintStmt implements IStmt{
 
     public PrgState execute(PrgState state) throws Exception {
         var output = state.getOutput();
-        output.add(expression.eval(state.getSymTable()));
+        var heap = state.getHeap();
+        output.add(expression.eval(state.getSymTable(),heap));
         state.setOutput(output);
-        return state;
+        return null;
     }
 
     @Override
     public IStmt deepcopy() {
         return new PrintStmt(expression);
+    }
+
+    @Override
+    public String getStatement() {
+        return "print";
+    }
+
+    @Override
+    public IDict<String, IType> typeCheck(IDict<String, IType> typeEnv) throws Exception {
+        expression.typeCheck(typeEnv);
+        return typeEnv;
     }
 
     @Override

@@ -6,5 +6,7 @@ public interface IStack<T> {
     void push(T v);
     boolean isEmpty();
     String toString();
+    int getSize();
+    public T top();
 }
 

@@ -1,28 +1,1710 @@
-Execution Stack:
-(variable declaration name:v and type: int;(v=2;print(v)))
-
-
-Execution Stack:
-variable declaration name:v and type: int
+Execution Stack:variable declaration:v,type:int
 System Table:
+File Table:[]
+Heap:[]
+Id:1
+Output:[]
+Execution Stack:v=4;while(v>0(print(v);v=v - 1));print(v)
+System Table:[v,0]
+File Table:[]
+Heap:[]
+Id:1
+Output:[]
+Execution Stack:v=4
+System Table:[v,0]
+File Table:[]
+Heap:[]
+Id:1
+Output:[]
+Execution Stack:while(v>0(print(v);v=v - 1));print(v)
+System Table:[v,4]
+File Table:[]
+Heap:[]
+Id:1
+Output:[]
+Execution Stack:while(v>0(print(v);v=v - 1))
+System Table:[v,4]
+File Table:[]
+Heap:[]
+Id:1
+Output:[]
+Execution Stack:print(v)
+System Table:[v,0]
+File Table:[]
+Heap:[]
+Id:1
+Output:[4, 3, 2, 1]
 
-
-Execution Stack:
-(v=2;print(v))
+System Table:[v,0]
+File Table:[]
+Heap:[]
+Id:1
+Output:[4, 3, 2, 1, 0]
+Execution Stack:variable declaration:v,type:int
 System Table:
-[v,0]
+File Table:[]
+Heap:[]
+Id:1
+Output:[]
+Execution Stack:v=4;while(v>0(print(v);v=v - 1));print(v)
+System Table:[v,0]
+File Table:[]
+Heap:[]
+Id:1
+Output:[]
+Execution Stack:v=4
+System Table:[v,0]
+File Table:[]
+Heap:[]
+Id:1
+Output:[]
+Execution Stack:while(v>0(print(v);v=v - 1));print(v)
+System Table:[v,4]
+File Table:[]
+Heap:[]
+Id:1
+Output:[]
+Execution Stack:while(v>0(print(v);v=v - 1))
+System Table:[v,4]
+File Table:[]
+Heap:[]
+Id:1
+Output:[]
+Execution Stack:print(v)
+System Table:[v,0]
+File Table:[]
+Heap:[]
+Id:1
+Output:[4, 3, 2, 1]
 
-
-Execution Stack:
-v=2
+System Table:[v,0]
+File Table:[]
+Heap:[]
+Id:1
+Output:[4, 3, 2, 1, 0]
+Execution Stack:variable declaration:v,type:int
 System Table:
-[v,0]
+File Table:[]
+Heap:[]
+Id:1
+Output:[]
+Execution Stack:variable declaration:a,type:Ref (int);v=10;Allocation:a;Fork(Heap Writing:a,30;v=32;print(v);print(Heap Reading:a));print(v);print(Heap Reading:a)
+System Table:[v,0]
+File Table:[]
+Heap:[]
+Id:1
+Output:[]
+Execution Stack:variable declaration:a,type:Ref (int)
+System Table:[v,0]
+File Table:[]
+Heap:[]
+Id:1
+Output:[]
+Execution Stack:v=10;Allocation:a;Fork(Heap Writing:a,30;v=32;print(v);print(Heap Reading:a));print(v);print(Heap Reading:a)
+System Table:[a,(0,int)][v,0]
+File Table:[]
+Heap:[]
+Id:1
+Output:[]
+Execution Stack:v=10
+System Table:[a,(0,int)][v,0]
+File Table:[]
+Heap:[]
+Id:1
+Output:[]
+Execution Stack:Allocation:a;Fork(Heap Writing:a,30;v=32;print(v);print(Heap Reading:a));print(v);print(Heap Reading:a)
+System Table:[a,(0,int)][v,10]
+File Table:[]
+Heap:[]
+Id:1
+Output:[]
+Execution Stack:Allocation:a
+System Table:[a,(0,int)][v,10]
+File Table:[]
+Heap:[]
+Id:1
+Output:[]
+Execution Stack:Fork(Heap Writing:a,30;v=32;print(v);print(Heap Reading:a));print(v);print(Heap Reading:a)
+System Table:[a,(1,Ref (int))][v,10]
+File Table:[]
+Heap:[1->22]
+Id:1
+Output:[]
+Execution Stack:Fork(Heap Writing:a,30;v=32;print(v);print(Heap Reading:a))
+System Table:[a,(1,Ref (int))][v,10]
+File Table:[]
+Heap:[1->22]
+Id:1
+Output:[]
+Execution Stack:print(v);print(Heap Reading:a)
+System Table:[a,(1,Ref (int))][v,10]
+File Table:[]
+Heap:[1->22]
+Id:1
+Output:[]
+Execution Stack:Heap Writing:a,30;v=32;print(v);print(Heap Reading:a)
+System Table:[a,(1,Ref (int))][v,10]
+File Table:[]
+Heap:[1->22]
+Id:2
+Output:[]
+Execution Stack:print(v)
+System Table:[a,(1,Ref (int))][v,10]
+File Table:[]
+Heap:[1->22]
+Id:1
+Output:[]
+Execution Stack:Heap Writing:a,30
+System Table:[a,(1,Ref (int))][v,10]
+File Table:[]
+Heap:[1->22]
+Id:2
+Output:[]
+Execution Stack:print(Heap Reading:a)
+System Table:[a,(1,Ref (int))][v,10]
+File Table:[]
+Heap:[1->30]
+Id:1
+Output:[10]
+Execution Stack:v=32;print(v);print(Heap Reading:a)
+System Table:[a,(1,Ref (int))][v,10]
+File Table:[]
+Heap:[1->30]
+Id:2
+Output:[10]
 
+System Table:[a,(1,Ref (int))][v,10]
+File Table:[]
+Heap:[1->30]
+Id:1
+Output:[10, 30]
+Execution Stack:v=32
+System Table:[a,(1,Ref (int))][v,10]
+File Table:[]
+Heap:[1->30]
+Id:2
+Output:[10, 30]
+Execution Stack:print(v);print(Heap Reading:a)
+System Table:[a,(1,Ref (int))][v,32]
+File Table:[]
+Heap:[1->30]
+Id:2
+Output:[10, 30]
+Execution Stack:print(v)
+System Table:[a,(1,Ref (int))][v,32]
+File Table:[]
+Heap:[1->30]
+Id:2
+Output:[10, 30]
+Execution Stack:print(Heap Reading:a)
+System Table:[a,(1,Ref (int))][v,32]
+File Table:[]
+Heap:[1->30]
+Id:2
+Output:[10, 30, 32]
 
-Execution Stack:
-print(v)
+System Table:[a,(1,Ref (int))][v,32]
+File Table:[]
+Heap:[1->30]
+Id:2
+Output:[10, 30, 32, 30]
+Execution Stack:variable declaration:v,type:int
 System Table:
-[v,2]
+File Table:[]
+Heap:[]
+Id:1
+Output:[]
+Execution Stack:v=4;while(v>0(print(v);v=v - 1));print(v)
+System Table:[v,0]
+File Table:[]
+Heap:[]
+Id:1
+Output:[]
+Execution Stack:v=4
+System Table:[v,0]
+File Table:[]
+Heap:[]
+Id:1
+Output:[]
+Execution Stack:while(v>0(print(v);v=v - 1));print(v)
+System Table:[v,4]
+File Table:[]
+Heap:[]
+Id:1
+Output:[]
+Execution Stack:while(v>0(print(v);v=v - 1))
+System Table:[v,4]
+File Table:[]
+Heap:[]
+Id:1
+Output:[]
+Execution Stack:print(v)
+System Table:[v,0]
+File Table:[]
+Heap:[]
+Id:1
+Output:[4, 3, 2, 1]
 
+System Table:[v,0]
+File Table:[]
+Heap:[]
+Id:1
+Output:[4, 3, 2, 1, 0]
+Execution Stack:variable declaration:v,type:int
+System Table:
+File Table:[]
+Heap:[]
+Id:1
+Output:[]
+Execution Stack:variable declaration:a,type:Ref (int);v=10;Allocation:a;Fork(Heap Writing:a,30;v=32;print(v);print(Heap Reading:a));print(v);print(Heap Reading:a)
+System Table:[v,0]
+File Table:[]
+Heap:[]
+Id:1
+Output:[]
+Execution Stack:variable declaration:a,type:Ref (int)
+System Table:[v,0]
+File Table:[]
+Heap:[]
+Id:1
+Output:[]
+Execution Stack:v=10;Allocation:a;Fork(Heap Writing:a,30;v=32;print(v);print(Heap Reading:a));print(v);print(Heap Reading:a)
+System Table:[a,(0,int)][v,0]
+File Table:[]
+Heap:[]
+Id:1
+Output:[]
+Execution Stack:v=10
+System Table:[a,(0,int)][v,0]
+File Table:[]
+Heap:[]
+Id:1
+Output:[]
+Execution Stack:Allocation:a;Fork(Heap Writing:a,30;v=32;print(v);print(Heap Reading:a));print(v);print(Heap Reading:a)
+System Table:[a,(0,int)][v,10]
+File Table:[]
+Heap:[]
+Id:1
+Output:[]
+Execution Stack:Allocation:a
+System Table:[a,(0,int)][v,10]
+File Table:[]
+Heap:[]
+Id:1
+Output:[]
+Execution Stack:Fork(Heap Writing:a,30;v=32;print(v);print(Heap Reading:a));print(v);print(Heap Reading:a)
+System Table:[a,(1,Ref (int))][v,10]
+File Table:[]
+Heap:[1->22]
+Id:1
+Output:[]
+Execution Stack:Fork(Heap Writing:a,30;v=32;print(v);print(Heap Reading:a))
+System Table:[a,(1,Ref (int))][v,10]
+File Table:[]
+Heap:[1->22]
+Id:1
+Output:[]
+Execution Stack:print(v);print(Heap Reading:a)
+System Table:[a,(1,Ref (int))][v,10]
+File Table:[]
+Heap:[1->22]
+Id:1
+Output:[]
+Execution Stack:Heap Writing:a,30;v=32;print(v);print(Heap Reading:a)
+System Table:[a,(1,Ref (int))][v,10]
+File Table:[]
+Heap:[1->22]
+Id:2
+Output:[]
+Execution Stack:print(v)
+System Table:[a,(1,Ref (int))][v,10]
+File Table:[]
+Heap:[1->22]
+Id:1
+Output:[]
+Execution Stack:Heap Writing:a,30
+System Table:[a,(1,Ref (int))][v,10]
+File Table:[]
+Heap:[1->22]
+Id:2
+Output:[]
+Execution Stack:print(Heap Reading:a)
+System Table:[a,(1,Ref (int))][v,10]
+File Table:[]
+Heap:[1->30]
+Id:1
+Output:[10]
+Execution Stack:v=32;print(v);print(Heap Reading:a)
+System Table:[a,(1,Ref (int))][v,10]
+File Table:[]
+Heap:[1->30]
+Id:2
+Output:[10]
 
-Output:2
+System Table:[a,(1,Ref (int))][v,10]
+File Table:[]
+Heap:[1->30]
+Id:1
+Output:[10, 30]
+Execution Stack:v=32
+System Table:[a,(1,Ref (int))][v,10]
+File Table:[]
+Heap:[1->30]
+Id:2
+Output:[10, 30]
+Execution Stack:print(v);print(Heap Reading:a)
+System Table:[a,(1,Ref (int))][v,32]
+File Table:[]
+Heap:[1->30]
+Id:2
+Output:[10, 30]
+Execution Stack:print(v)
+System Table:[a,(1,Ref (int))][v,32]
+File Table:[]
+Heap:[1->30]
+Id:2
+Output:[10, 30]
+Execution Stack:print(Heap Reading:a)
+System Table:[a,(1,Ref (int))][v,32]
+File Table:[]
+Heap:[1->30]
+Id:2
+Output:[10, 30, 32]
+
+System Table:[a,(1,Ref (int))][v,32]
+File Table:[]
+Heap:[1->30]
+Id:2
+Output:[10, 30, 32, 30]
+Execution Stack:variable declaration:v,type:int
+System Table:
+File Table:[]
+Heap:[]
+Id:1
+Output:[]
+Execution Stack:v=4;while(v>0(print(v);v=v - 1));print(v)
+System Table:[v,0]
+File Table:[]
+Heap:[]
+Id:1
+Output:[]
+Execution Stack:v=4
+System Table:[v,0]
+File Table:[]
+Heap:[]
+Id:1
+Output:[]
+Execution Stack:while(v>0(print(v);v=v - 1));print(v)
+System Table:[v,4]
+File Table:[]
+Heap:[]
+Id:1
+Output:[]
+Execution Stack:while(v>0(print(v);v=v - 1))
+System Table:[v,4]
+File Table:[]
+Heap:[]
+Id:1
+Output:[]
+Execution Stack:print(v)
+System Table:[v,0]
+File Table:[]
+Heap:[]
+Id:1
+Output:[4, 3, 2, 1]
+
+System Table:[v,0]
+File Table:[]
+Heap:[]
+Id:1
+Output:[4, 3, 2, 1, 0]
+Execution Stack:variable declaration:v,type:int
+System Table:
+File Table:[]
+Heap:[]
+Id:1
+Output:[]
+Execution Stack:variable declaration:a,type:Ref (int);v=10;Allocation:a;Fork(Heap Writing:a,30;v=32;print(v);print(Heap Reading:a));print(v);print(Heap Reading:a)
+System Table:[v,0]
+File Table:[]
+Heap:[]
+Id:1
+Output:[]
+Execution Stack:variable declaration:a,type:Ref (int)
+System Table:[v,0]
+File Table:[]
+Heap:[]
+Id:1
+Output:[]
+Execution Stack:v=10;Allocation:a;Fork(Heap Writing:a,30;v=32;print(v);print(Heap Reading:a));print(v);print(Heap Reading:a)
+System Table:[a,(0,int)][v,0]
+File Table:[]
+Heap:[]
+Id:1
+Output:[]
+Execution Stack:v=10
+System Table:[a,(0,int)][v,0]
+File Table:[]
+Heap:[]
+Id:1
+Output:[]
+Execution Stack:Allocation:a;Fork(Heap Writing:a,30;v=32;print(v);print(Heap Reading:a));print(v);print(Heap Reading:a)
+System Table:[a,(0,int)][v,10]
+File Table:[]
+Heap:[]
+Id:1
+Output:[]
+Execution Stack:Allocation:a
+System Table:[a,(0,int)][v,10]
+File Table:[]
+Heap:[]
+Id:1
+Output:[]
+Execution Stack:Fork(Heap Writing:a,30;v=32;print(v);print(Heap Reading:a));print(v);print(Heap Reading:a)
+System Table:[a,(1,Ref (int))][v,10]
+File Table:[]
+Heap:[1->22]
+Id:1
+Output:[]
+Execution Stack:Fork(Heap Writing:a,30;v=32;print(v);print(Heap Reading:a))
+System Table:[a,(1,Ref (int))][v,10]
+File Table:[]
+Heap:[1->22]
+Id:1
+Output:[]
+Execution Stack:print(v);print(Heap Reading:a)
+System Table:[a,(1,Ref (int))][v,10]
+File Table:[]
+Heap:[1->22]
+Id:1
+Output:[]
+Execution Stack:Heap Writing:a,30;v=32;print(v);print(Heap Reading:a)
+System Table:[a,(1,Ref (int))][v,10]
+File Table:[]
+Heap:[1->22]
+Id:2
+Output:[]
+Execution Stack:print(v)
+System Table:[a,(1,Ref (int))][v,10]
+File Table:[]
+Heap:[1->22]
+Id:1
+Output:[]
+Execution Stack:Heap Writing:a,30
+System Table:[a,(1,Ref (int))][v,10]
+File Table:[]
+Heap:[1->22]
+Id:2
+Output:[]
+Execution Stack:print(Heap Reading:a)
+System Table:[a,(1,Ref (int))][v,10]
+File Table:[]
+Heap:[1->30]
+Id:1
+Output:[10]
+Execution Stack:v=32;print(v);print(Heap Reading:a)
+System Table:[a,(1,Ref (int))][v,10]
+File Table:[]
+Heap:[1->30]
+Id:2
+Output:[10]
+
+System Table:[a,(1,Ref (int))][v,10]
+File Table:[]
+Heap:[1->30]
+Id:1
+Output:[10, 30]
+Execution Stack:v=32
+System Table:[a,(1,Ref (int))][v,10]
+File Table:[]
+Heap:[1->30]
+Id:2
+Output:[10, 30]
+Execution Stack:print(v);print(Heap Reading:a)
+System Table:[a,(1,Ref (int))][v,32]
+File Table:[]
+Heap:[1->30]
+Id:2
+Output:[10, 30]
+Execution Stack:print(v)
+System Table:[a,(1,Ref (int))][v,32]
+File Table:[]
+Heap:[1->30]
+Id:2
+Output:[10, 30]
+Execution Stack:print(Heap Reading:a)
+System Table:[a,(1,Ref (int))][v,32]
+File Table:[]
+Heap:[1->30]
+Id:2
+Output:[10, 30, 32]
+
+System Table:[a,(1,Ref (int))][v,32]
+File Table:[]
+Heap:[1->30]
+Id:2
+Output:[10, 30, 32, 30]
+Execution Stack:variable declaration:v,type:int
+System Table:
+File Table:[]
+Heap:[]
+Id:1
+Output:[]
+Execution Stack:v=4;while(v>0(print(v);v=v - 1));print(v)
+System Table:[v,0]
+File Table:[]
+Heap:[]
+Id:1
+Output:[]
+Execution Stack:v=4
+System Table:[v,0]
+File Table:[]
+Heap:[]
+Id:1
+Output:[]
+Execution Stack:while(v>0(print(v);v=v - 1));print(v)
+System Table:[v,4]
+File Table:[]
+Heap:[]
+Id:1
+Output:[]
+Execution Stack:while(v>0(print(v);v=v - 1))
+System Table:[v,4]
+File Table:[]
+Heap:[]
+Id:1
+Output:[]
+Execution Stack:print(v)
+System Table:[v,0]
+File Table:[]
+Heap:[]
+Id:1
+Output:[4, 3, 2, 1]
+
+System Table:[v,0]
+File Table:[]
+Heap:[]
+Id:1
+Output:[4, 3, 2, 1, 0]
+Execution Stack:variable declaration:v,type:int
+System Table:
+File Table:[]
+Heap:[]
+Id:1
+Output:[]
+Execution Stack:v=2;print(v)
+System Table:[v,0]
+File Table:[]
+Heap:[]
+Id:1
+Output:[]
+Execution Stack:v=2
+System Table:[v,0]
+File Table:[]
+Heap:[]
+Id:1
+Output:[]
+Execution Stack:print(v)
+System Table:[v,2]
+File Table:[]
+Heap:[]
+Id:1
+Output:[]
+
+System Table:[v,2]
+File Table:[]
+Heap:[]
+Id:1
+Output:[2]
+Execution Stack:variable declaration:a,type:int
+System Table:
+File Table:[]
+Heap:[]
+Id:1
+Output:[]
+Execution Stack:variable declaration:b,type:int;a=2 + 3 * 5;b=a + 1;print(b)
+System Table:[a,0]
+File Table:[]
+Heap:[]
+Id:1
+Output:[]
+Execution Stack:variable declaration:b,type:int
+System Table:[a,0]
+File Table:[]
+Heap:[]
+Id:1
+Output:[]
+Execution Stack:a=2 + 3 * 5;b=a + 1;print(b)
+System Table:[a,0][b,0]
+File Table:[]
+Heap:[]
+Id:1
+Output:[]
+Execution Stack:a=2 + 3 * 5
+System Table:[a,0][b,0]
+File Table:[]
+Heap:[]
+Id:1
+Output:[]
+Execution Stack:b=a + 1;print(b)
+System Table:[a,17][b,0]
+File Table:[]
+Heap:[]
+Id:1
+Output:[]
+Execution Stack:b=a + 1
+System Table:[a,17][b,0]
+File Table:[]
+Heap:[]
+Id:1
+Output:[]
+Execution Stack:print(b)
+System Table:[a,17][b,18]
+File Table:[]
+Heap:[]
+Id:1
+Output:[]
+
+System Table:[a,17][b,18]
+File Table:[]
+Heap:[]
+Id:1
+Output:[18]
+Execution Stack:variable declaration:a,type:bool
+System Table:
+File Table:[]
+Heap:[]
+Id:1
+Output:[]
+Execution Stack:variable declaration:v,type:int;a=true;(IF(a) THEN(v=2)ELSE(v=3));print(v)
+System Table:[a,false]
+File Table:[]
+Heap:[]
+Id:1
+Output:[]
+Execution Stack:variable declaration:v,type:int
+System Table:[a,false]
+File Table:[]
+Heap:[]
+Id:1
+Output:[]
+Execution Stack:a=true;(IF(a) THEN(v=2)ELSE(v=3));print(v)
+System Table:[a,false][v,0]
+File Table:[]
+Heap:[]
+Id:1
+Output:[]
+Execution Stack:a=true
+System Table:[a,false][v,0]
+File Table:[]
+Heap:[]
+Id:1
+Output:[]
+Execution Stack:(IF(a) THEN(v=2)ELSE(v=3));print(v)
+System Table:[a,true][v,0]
+File Table:[]
+Heap:[]
+Id:1
+Output:[]
+Execution Stack:(IF(a) THEN(v=2)ELSE(v=3))
+System Table:[a,true][v,0]
+File Table:[]
+Heap:[]
+Id:1
+Output:[]
+Execution Stack:print(v)
+System Table:[a,true][v,2]
+File Table:[]
+Heap:[]
+Id:1
+Output:[]
+
+System Table:[a,true][v,2]
+File Table:[]
+Heap:[]
+Id:1
+Output:[2]
+Execution Stack:variable declaration:v,type:int
+System Table:
+File Table:[]
+Heap:[]
+Id:1
+Output:[]
+Execution Stack:open file:input.txt;read data for variable:v from file:input.txt;print(v);closed file:input.txt
+System Table:[v,0]
+File Table:[]
+Heap:[]
+Id:1
+Output:[]
+Execution Stack:open file:input.txt
+System Table:[v,0]
+File Table:[]
+Heap:[]
+Id:1
+Output:[]
+Execution Stack:read data for variable:v from file:input.txt;print(v);closed file:input.txt
+System Table:[v,0]
+File Table:[input.txt]
+Heap:[]
+Id:1
+Output:[]
+Execution Stack:read data for variable:v from file:input.txt
+System Table:[v,0]
+File Table:[input.txt]
+Heap:[]
+Id:1
+Output:[]
+Execution Stack:print(v);closed file:input.txt
+System Table:[v,1000]
+File Table:[input.txt]
+Heap:[]
+Id:1
+Output:[]
+Execution Stack:print(v)
+System Table:[v,1000]
+File Table:[input.txt]
+Heap:[]
+Id:1
+Output:[]
+Execution Stack:closed file:input.txt
+System Table:[v,1000]
+File Table:[input.txt]
+Heap:[]
+Id:1
+Output:[1000]
+
+System Table:[v,1000]
+File Table:[]
+Heap:[]
+Id:1
+Output:[1000]
+Execution Stack:variable declaration:v,type:Ref (int)
+System Table:
+File Table:[]
+Heap:[]
+Id:1
+Output:[]
+Execution Stack:Allocation:v;variable declaration:a,type:Ref (Ref (int));Allocation:a;print(Heap Reading:v);print(Heap Reading:Heap Reading:a + 5)
+System Table:[v,(0,int)]
+File Table:[]
+Heap:[]
+Id:1
+Output:[]
+Execution Stack:Allocation:v
+System Table:[v,(0,int)]
+File Table:[]
+Heap:[]
+Id:1
+Output:[]
+Execution Stack:variable declaration:a,type:Ref (Ref (int));Allocation:a;print(Heap Reading:v);print(Heap Reading:Heap Reading:a + 5)
+System Table:[v,(1,Ref (int))]
+File Table:[]
+Heap:[1->20]
+Id:1
+Output:[]
+Execution Stack:variable declaration:a,type:Ref (Ref (int))
+System Table:[v,(1,Ref (int))]
+File Table:[]
+Heap:[1->20]
+Id:1
+Output:[]
+Execution Stack:Allocation:a;print(Heap Reading:v);print(Heap Reading:Heap Reading:a + 5)
+System Table:[a,(0,Ref (int))][v,(1,Ref (int))]
+File Table:[]
+Heap:[1->20]
+Id:1
+Output:[]
+Execution Stack:Allocation:a
+System Table:[a,(0,Ref (int))][v,(1,Ref (int))]
+File Table:[]
+Heap:[1->20]
+Id:1
+Output:[]
+Execution Stack:print(Heap Reading:v);print(Heap Reading:Heap Reading:a + 5)
+System Table:[a,(2,Ref (Ref (int)))][v,(1,Ref (int))]
+File Table:[]
+Heap:[1->20][2->(1,Ref (int))]
+Id:1
+Output:[]
+Execution Stack:print(Heap Reading:v)
+System Table:[a,(2,Ref (Ref (int)))][v,(1,Ref (int))]
+File Table:[]
+Heap:[1->20][2->(1,Ref (int))]
+Id:1
+Output:[]
+Execution Stack:print(Heap Reading:Heap Reading:a + 5)
+System Table:[a,(2,Ref (Ref (int)))][v,(1,Ref (int))]
+File Table:[]
+Heap:[1->20][2->(1,Ref (int))]
+Id:1
+Output:[20]
+
+System Table:[a,(2,Ref (Ref (int)))][v,(1,Ref (int))]
+File Table:[]
+Heap:[1->20][2->(1,Ref (int))]
+Id:1
+Output:[20, 25]
+Execution Stack:variable declaration:v,type:Ref (int)
+System Table:
+File Table:[]
+Heap:[]
+Id:1
+Output:[]
+Execution Stack:Allocation:v;print(Heap Reading:v);Heap Writing:v,30;print(Heap Reading:v + 5)
+System Table:[v,(0,int)]
+File Table:[]
+Heap:[]
+Id:1
+Output:[]
+Execution Stack:Allocation:v
+System Table:[v,(0,int)]
+File Table:[]
+Heap:[]
+Id:1
+Output:[]
+Execution Stack:print(Heap Reading:v);Heap Writing:v,30;print(Heap Reading:v + 5)
+System Table:[v,(1,Ref (int))]
+File Table:[]
+Heap:[1->20]
+Id:1
+Output:[]
+Execution Stack:print(Heap Reading:v)
+System Table:[v,(1,Ref (int))]
+File Table:[]
+Heap:[1->20]
+Id:1
+Output:[]
+Execution Stack:Heap Writing:v,30;print(Heap Reading:v + 5)
+System Table:[v,(1,Ref (int))]
+File Table:[]
+Heap:[1->20]
+Id:1
+Output:[20]
+Execution Stack:Heap Writing:v,30
+System Table:[v,(1,Ref (int))]
+File Table:[]
+Heap:[1->20]
+Id:1
+Output:[20]
+Execution Stack:print(Heap Reading:v + 5)
+System Table:[v,(1,Ref (int))]
+File Table:[]
+Heap:[1->30]
+Id:1
+Output:[20]
+
+System Table:[v,(1,Ref (int))]
+File Table:[]
+Heap:[1->30]
+Id:1
+Output:[20, 35]
+Execution Stack:variable declaration:v,type:Ref (int)
+System Table:
+File Table:[]
+Heap:[]
+Id:1
+Output:[]
+Execution Stack:Allocation:v;variable declaration:a,type:Ref (Ref (int));Allocation:a;print(Heap Reading:Heap Reading:a)
+System Table:[v,(0,int)]
+File Table:[]
+Heap:[]
+Id:1
+Output:[]
+Execution Stack:Allocation:v
+System Table:[v,(0,int)]
+File Table:[]
+Heap:[]
+Id:1
+Output:[]
+Execution Stack:variable declaration:a,type:Ref (Ref (int));Allocation:a;print(Heap Reading:Heap Reading:a)
+System Table:[v,(1,Ref (int))]
+File Table:[]
+Heap:[1->20]
+Id:1
+Output:[]
+Execution Stack:variable declaration:a,type:Ref (Ref (int))
+System Table:[v,(1,Ref (int))]
+File Table:[]
+Heap:[1->20]
+Id:1
+Output:[]
+Execution Stack:Allocation:a;print(Heap Reading:Heap Reading:a)
+System Table:[a,(0,Ref (int))][v,(1,Ref (int))]
+File Table:[]
+Heap:[1->20]
+Id:1
+Output:[]
+Execution Stack:Allocation:a
+System Table:[a,(0,Ref (int))][v,(1,Ref (int))]
+File Table:[]
+Heap:[1->20]
+Id:1
+Output:[]
+Execution Stack:print(Heap Reading:Heap Reading:a)
+System Table:[a,(2,Ref (Ref (int)))][v,(1,Ref (int))]
+File Table:[]
+Heap:[1->20][2->(1,Ref (int))]
+Id:1
+Output:[]
+
+System Table:[a,(2,Ref (Ref (int)))][v,(1,Ref (int))]
+File Table:[]
+Heap:[1->20][2->(1,Ref (int))]
+Id:1
+Output:[20]
+Execution Stack:variable declaration:v,type:int
+System Table:
+File Table:[]
+Heap:[]
+Id:1
+Output:[]
+Execution Stack:variable declaration:a,type:Ref (int);v=10;Allocation:a;Fork(Heap Writing:a,30;v=32;print(v);print(Heap Reading:a));print(v);print(Heap Reading:a)
+System Table:[v,0]
+File Table:[]
+Heap:[]
+Id:1
+Output:[]
+Execution Stack:variable declaration:a,type:Ref (int)
+System Table:[v,0]
+File Table:[]
+Heap:[]
+Id:1
+Output:[]
+Execution Stack:v=10;Allocation:a;Fork(Heap Writing:a,30;v=32;print(v);print(Heap Reading:a));print(v);print(Heap Reading:a)
+System Table:[a,(0,int)][v,0]
+File Table:[]
+Heap:[]
+Id:1
+Output:[]
+Execution Stack:v=10
+System Table:[a,(0,int)][v,0]
+File Table:[]
+Heap:[]
+Id:1
+Output:[]
+Execution Stack:Allocation:a;Fork(Heap Writing:a,30;v=32;print(v);print(Heap Reading:a));print(v);print(Heap Reading:a)
+System Table:[a,(0,int)][v,10]
+File Table:[]
+Heap:[]
+Id:1
+Output:[]
+Execution Stack:Allocation:a
+System Table:[a,(0,int)][v,10]
+File Table:[]
+Heap:[]
+Id:1
+Output:[]
+Execution Stack:Fork(Heap Writing:a,30;v=32;print(v);print(Heap Reading:a));print(v);print(Heap Reading:a)
+System Table:[a,(1,Ref (int))][v,10]
+File Table:[]
+Heap:[1->22]
+Id:1
+Output:[]
+Execution Stack:Fork(Heap Writing:a,30;v=32;print(v);print(Heap Reading:a))
+System Table:[a,(1,Ref (int))][v,10]
+File Table:[]
+Heap:[1->22]
+Id:1
+Output:[]
+Execution Stack:print(v);print(Heap Reading:a)
+System Table:[a,(1,Ref (int))][v,10]
+File Table:[]
+Heap:[1->22]
+Id:1
+Output:[]
+Execution Stack:Heap Writing:a,30;v=32;print(v);print(Heap Reading:a)
+System Table:[a,(1,Ref (int))][v,10]
+File Table:[]
+Heap:[1->22]
+Id:2
+Output:[]
+Execution Stack:print(v)
+System Table:[a,(1,Ref (int))][v,10]
+File Table:[]
+Heap:[1->22]
+Id:1
+Output:[]
+Execution Stack:Heap Writing:a,30
+System Table:[a,(1,Ref (int))][v,10]
+File Table:[]
+Heap:[1->22]
+Id:2
+Output:[]
+Execution Stack:print(Heap Reading:a)
+System Table:[a,(1,Ref (int))][v,10]
+File Table:[]
+Heap:[1->30]
+Id:1
+Output:[10]
+Execution Stack:v=32;print(v);print(Heap Reading:a)
+System Table:[a,(1,Ref (int))][v,10]
+File Table:[]
+Heap:[1->30]
+Id:2
+Output:[10]
+
+System Table:[a,(1,Ref (int))][v,10]
+File Table:[]
+Heap:[1->30]
+Id:1
+Output:[10, 30]
+Execution Stack:v=32
+System Table:[a,(1,Ref (int))][v,10]
+File Table:[]
+Heap:[1->30]
+Id:2
+Output:[10, 30]
+Execution Stack:print(v);print(Heap Reading:a)
+System Table:[a,(1,Ref (int))][v,32]
+File Table:[]
+Heap:[1->30]
+Id:2
+Output:[10, 30]
+Execution Stack:print(v)
+System Table:[a,(1,Ref (int))][v,32]
+File Table:[]
+Heap:[1->30]
+Id:2
+Output:[10, 30]
+Execution Stack:print(Heap Reading:a)
+System Table:[a,(1,Ref (int))][v,32]
+File Table:[]
+Heap:[1->30]
+Id:2
+Output:[10, 30, 32]
+
+System Table:[a,(1,Ref (int))][v,32]
+File Table:[]
+Heap:[1->30]
+Id:2
+Output:[10, 30, 32, 30]
+Execution Stack:variable declaration:v,type:int
+System Table:
+File Table:[]
+Heap:[]
+Id:1
+Output:[]
+Execution Stack:variable declaration:a,type:Ref (int);v=10;Allocation:a;Fork(Heap Writing:a,30;v=32;print(v);print(Heap Reading:a));print(v);print(Heap Reading:a)
+System Table:[v,0]
+File Table:[]
+Heap:[]
+Id:1
+Output:[]
+Execution Stack:variable declaration:a,type:Ref (int)
+System Table:[v,0]
+File Table:[]
+Heap:[]
+Id:1
+Output:[]
+Execution Stack:v=10;Allocation:a;Fork(Heap Writing:a,30;v=32;print(v);print(Heap Reading:a));print(v);print(Heap Reading:a)
+System Table:[a,(0,int)][v,0]
+File Table:[]
+Heap:[]
+Id:1
+Output:[]
+Execution Stack:v=10
+System Table:[a,(0,int)][v,0]
+File Table:[]
+Heap:[]
+Id:1
+Output:[]
+Execution Stack:Allocation:a;Fork(Heap Writing:a,30;v=32;print(v);print(Heap Reading:a));print(v);print(Heap Reading:a)
+System Table:[a,(0,int)][v,10]
+File Table:[]
+Heap:[]
+Id:1
+Output:[]
+Execution Stack:Allocation:a
+System Table:[a,(0,int)][v,10]
+File Table:[]
+Heap:[]
+Id:1
+Output:[]
+Execution Stack:Fork(Heap Writing:a,30;v=32;print(v);print(Heap Reading:a));print(v);print(Heap Reading:a)
+System Table:[a,(1,Ref (int))][v,10]
+File Table:[]
+Heap:[1->22]
+Id:1
+Output:[]
+Execution Stack:Fork(Heap Writing:a,30;v=32;print(v);print(Heap Reading:a))
+System Table:[a,(1,Ref (int))][v,10]
+File Table:[]
+Heap:[1->22]
+Id:1
+Output:[]
+Execution Stack:print(v);print(Heap Reading:a)
+System Table:[a,(1,Ref (int))][v,10]
+File Table:[]
+Heap:[1->22]
+Id:1
+Output:[]
+Execution Stack:Heap Writing:a,30;v=32;print(v);print(Heap Reading:a)
+System Table:[a,(1,Ref (int))][v,10]
+File Table:[]
+Heap:[1->22]
+Id:2
+Output:[]
+Execution Stack:print(v)
+System Table:[a,(1,Ref (int))][v,10]
+File Table:[]
+Heap:[1->22]
+Id:1
+Output:[]
+Execution Stack:Heap Writing:a,30
+System Table:[a,(1,Ref (int))][v,10]
+File Table:[]
+Heap:[1->22]
+Id:2
+Output:[]
+Execution Stack:print(Heap Reading:a)
+System Table:[a,(1,Ref (int))][v,10]
+File Table:[]
+Heap:[1->30]
+Id:1
+Output:[10]
+Execution Stack:v=32;print(v);print(Heap Reading:a)
+System Table:[a,(1,Ref (int))][v,10]
+File Table:[]
+Heap:[1->30]
+Id:2
+Output:[10]
+
+System Table:[a,(1,Ref (int))][v,10]
+File Table:[]
+Heap:[1->30]
+Id:1
+Output:[10, 30]
+Execution Stack:v=32
+System Table:[a,(1,Ref (int))][v,10]
+File Table:[]
+Heap:[1->30]
+Id:2
+Output:[10, 30]
+Execution Stack:print(v);print(Heap Reading:a)
+System Table:[a,(1,Ref (int))][v,32]
+File Table:[]
+Heap:[1->30]
+Id:2
+Output:[10, 30]
+Execution Stack:print(v)
+System Table:[a,(1,Ref (int))][v,32]
+File Table:[]
+Heap:[1->30]
+Id:2
+Output:[10, 30]
+Execution Stack:print(Heap Reading:a)
+System Table:[a,(1,Ref (int))][v,32]
+File Table:[]
+Heap:[1->30]
+Id:2
+Output:[10, 30, 32]
+
+System Table:[a,(1,Ref (int))][v,32]
+File Table:[]
+Heap:[1->30]
+Id:2
+Output:[10, 30, 32, 30]
+Execution Stack:variable declaration:v,type:int
+System Table:
+File Table:[]
+Heap:[]
+Id:1
+Output:[]
+Execution Stack:variable declaration:a,type:Ref (int);v=10;Allocation:a;Fork(Heap Writing:a,30;v=32;print(v);print(Heap Reading:a));print(v);print(Heap Reading:a)
+System Table:[v,0]
+File Table:[]
+Heap:[]
+Id:1
+Output:[]
+Execution Stack:variable declaration:a,type:Ref (int)
+System Table:[v,0]
+File Table:[]
+Heap:[]
+Id:1
+Output:[]
+Execution Stack:v=10;Allocation:a;Fork(Heap Writing:a,30;v=32;print(v);print(Heap Reading:a));print(v);print(Heap Reading:a)
+System Table:[a,(0,int)][v,0]
+File Table:[]
+Heap:[]
+Id:1
+Output:[]
+Execution Stack:v=10
+System Table:[a,(0,int)][v,0]
+File Table:[]
+Heap:[]
+Id:1
+Output:[]
+Execution Stack:Allocation:a;Fork(Heap Writing:a,30;v=32;print(v);print(Heap Reading:a));print(v);print(Heap Reading:a)
+System Table:[a,(0,int)][v,10]
+File Table:[]
+Heap:[]
+Id:1
+Output:[]
+Execution Stack:Allocation:a
+System Table:[a,(0,int)][v,10]
+File Table:[]
+Heap:[]
+Id:1
+Output:[]
+Execution Stack:Fork(Heap Writing:a,30;v=32;print(v);print(Heap Reading:a));print(v);print(Heap Reading:a)
+System Table:[a,(1,Ref (int))][v,10]
+File Table:[]
+Heap:[1->22]
+Id:1
+Output:[]
+Execution Stack:Fork(Heap Writing:a,30;v=32;print(v);print(Heap Reading:a))
+System Table:[a,(1,Ref (int))][v,10]
+File Table:[]
+Heap:[1->22]
+Id:1
+Output:[]
+Execution Stack:print(v);print(Heap Reading:a)
+System Table:[a,(1,Ref (int))][v,10]
+File Table:[]
+Heap:[1->22]
+Id:1
+Output:[]
+Execution Stack:Heap Writing:a,30;v=32;print(v);print(Heap Reading:a)
+System Table:[a,(1,Ref (int))][v,10]
+File Table:[]
+Heap:[1->22]
+Id:2
+Output:[]
+Execution Stack:print(v)
+System Table:[a,(1,Ref (int))][v,10]
+File Table:[]
+Heap:[1->22]
+Id:1
+Output:[]
+Execution Stack:Heap Writing:a,30
+System Table:[a,(1,Ref (int))][v,10]
+File Table:[]
+Heap:[1->22]
+Id:2
+Output:[]
+Execution Stack:print(Heap Reading:a)
+System Table:[a,(1,Ref (int))][v,10]
+File Table:[]
+Heap:[1->30]
+Id:1
+Output:[10]
+Execution Stack:v=32;print(v);print(Heap Reading:a)
+System Table:[a,(1,Ref (int))][v,10]
+File Table:[]
+Heap:[1->30]
+Id:2
+Output:[10]
+
+System Table:[a,(1,Ref (int))][v,10]
+File Table:[]
+Heap:[1->30]
+Id:1
+Output:[10, 30]
+Execution Stack:v=32
+System Table:[a,(1,Ref (int))][v,10]
+File Table:[]
+Heap:[1->30]
+Id:2
+Output:[10, 30]
+Execution Stack:print(v);print(Heap Reading:a)
+System Table:[a,(1,Ref (int))][v,32]
+File Table:[]
+Heap:[1->30]
+Id:2
+Output:[10, 30]
+Execution Stack:print(v)
+System Table:[a,(1,Ref (int))][v,32]
+File Table:[]
+Heap:[1->30]
+Id:2
+Output:[10, 30]
+Execution Stack:print(Heap Reading:a)
+System Table:[a,(1,Ref (int))][v,32]
+File Table:[]
+Heap:[1->30]
+Id:2
+Output:[10, 30, 32]
+
+System Table:[a,(1,Ref (int))][v,32]
+File Table:[]
+Heap:[1->30]
+Id:2
+Output:[10, 30, 32, 30]
+Execution Stack:variable declaration:v,type:int
+System Table:
+File Table:[]
+Heap:[]
+Id:1
+Output:[]
+Execution Stack:variable declaration:a,type:Ref (int);v=10;Allocation:a;Fork(Heap Writing:a,30;v=32;print(v);print(Heap Reading:a));print(v);print(Heap Reading:a)
+System Table:[v,0]
+File Table:[]
+Heap:[]
+Id:1
+Output:[]
+Execution Stack:variable declaration:a,type:Ref (int)
+System Table:[v,0]
+File Table:[]
+Heap:[]
+Id:1
+Output:[]
+Execution Stack:v=10;Allocation:a;Fork(Heap Writing:a,30;v=32;print(v);print(Heap Reading:a));print(v);print(Heap Reading:a)
+System Table:[a,(0,int)][v,0]
+File Table:[]
+Heap:[]
+Id:1
+Output:[]
+Execution Stack:v=10
+System Table:[a,(0,int)][v,0]
+File Table:[]
+Heap:[]
+Id:1
+Output:[]
+Execution Stack:Allocation:a;Fork(Heap Writing:a,30;v=32;print(v);print(Heap Reading:a));print(v);print(Heap Reading:a)
+System Table:[a,(0,int)][v,10]
+File Table:[]
+Heap:[]
+Id:1
+Output:[]
+Execution Stack:Allocation:a
+System Table:[a,(0,int)][v,10]
+File Table:[]
+Heap:[]
+Id:1
+Output:[]
+Execution Stack:Fork(Heap Writing:a,30;v=32;print(v);print(Heap Reading:a));print(v);print(Heap Reading:a)
+System Table:[a,(1,Ref (int))][v,10]
+File Table:[]
+Heap:[1->22]
+Id:1
+Output:[]
+Execution Stack:Fork(Heap Writing:a,30;v=32;print(v);print(Heap Reading:a))
+System Table:[a,(1,Ref (int))][v,10]
+File Table:[]
+Heap:[1->22]
+Id:1
+Output:[]
+Execution Stack:print(v);print(Heap Reading:a)
+System Table:[a,(1,Ref (int))][v,10]
+File Table:[]
+Heap:[1->22]
+Id:1
+Output:[]
+Execution Stack:Heap Writing:a,30;v=32;print(v);print(Heap Reading:a)
+System Table:[a,(1,Ref (int))][v,10]
+File Table:[]
+Heap:[1->22]
+Id:2
+Output:[]
+Execution Stack:print(v)
+System Table:[a,(1,Ref (int))][v,10]
+File Table:[]
+Heap:[1->22]
+Id:1
+Output:[]
+Execution Stack:Heap Writing:a,30
+System Table:[a,(1,Ref (int))][v,10]
+File Table:[]
+Heap:[1->22]
+Id:2
+Output:[]
+Execution Stack:print(Heap Reading:a)
+System Table:[a,(1,Ref (int))][v,10]
+File Table:[]
+Heap:[1->30]
+Id:1
+Output:[10]
+Execution Stack:v=32;print(v);print(Heap Reading:a)
+System Table:[a,(1,Ref (int))][v,10]
+File Table:[]
+Heap:[1->30]
+Id:2
+Output:[10]
+
+System Table:[a,(1,Ref (int))][v,10]
+File Table:[]
+Heap:[1->30]
+Id:1
+Output:[10, 30]
+Execution Stack:v=32
+System Table:[a,(1,Ref (int))][v,10]
+File Table:[]
+Heap:[1->30]
+Id:2
+Output:[10, 30]
+Execution Stack:print(v);print(Heap Reading:a)
+System Table:[a,(1,Ref (int))][v,32]
+File Table:[]
+Heap:[1->30]
+Id:2
+Output:[10, 30]
+Execution Stack:print(v)
+System Table:[a,(1,Ref (int))][v,32]
+File Table:[]
+Heap:[1->30]
+Id:2
+Output:[10, 30]
+Execution Stack:print(Heap Reading:a)
+System Table:[a,(1,Ref (int))][v,32]
+File Table:[]
+Heap:[1->30]
+Id:2
+Output:[10, 30, 32]
+
+System Table:[a,(1,Ref (int))][v,32]
+File Table:[]
+Heap:[1->30]
+Id:2
+Output:[10, 30, 32, 30]
+Execution Stack:variable declaration:v,type:int
+System Table:
+File Table:[]
+Heap:[]
+Id:1
+Output:[]
+Execution Stack:variable declaration:a,type:Ref (int);v=10;Allocation:a;Fork(Heap Writing:a,30;v=32;print(v);print(Heap Reading:a));print(v);print(Heap Reading:a)
+System Table:[v,0]
+File Table:[]
+Heap:[]
+Id:1
+Output:[]
+Execution Stack:variable declaration:a,type:Ref (int)
+System Table:[v,0]
+File Table:[]
+Heap:[]
+Id:1
+Output:[]
+Execution Stack:v=10;Allocation:a;Fork(Heap Writing:a,30;v=32;print(v);print(Heap Reading:a));print(v);print(Heap Reading:a)
+System Table:[a,(0,int)][v,0]
+File Table:[]
+Heap:[]
+Id:1
+Output:[]
+Execution Stack:v=10
+System Table:[a,(0,int)][v,0]
+File Table:[]
+Heap:[]
+Id:1
+Output:[]
+Execution Stack:Allocation:a;Fork(Heap Writing:a,30;v=32;print(v);print(Heap Reading:a));print(v);print(Heap Reading:a)
+System Table:[a,(0,int)][v,10]
+File Table:[]
+Heap:[]
+Id:1
+Output:[]
+Execution Stack:Allocation:a
+System Table:[a,(0,int)][v,10]
+File Table:[]
+Heap:[]
+Id:1
+Output:[]
+Execution Stack:Fork(Heap Writing:a,30;v=32;print(v);print(Heap Reading:a));print(v);print(Heap Reading:a)
+System Table:[a,(1,Ref (int))][v,10]
+File Table:[]
+Heap:[1->22]
+Id:1
+Output:[]
+Execution Stack:Fork(Heap Writing:a,30;v=32;print(v);print(Heap Reading:a))
+System Table:[a,(1,Ref (int))][v,10]
+File Table:[]
+Heap:[1->22]
+Id:1
+Output:[]
+Execution Stack:print(v);print(Heap Reading:a)
+System Table:[a,(1,Ref (int))][v,10]
+File Table:[]
+Heap:[1->22]
+Id:1
+Output:[]
+Execution Stack:Heap Writing:a,30;v=32;print(v);print(Heap Reading:a)
+System Table:[a,(1,Ref (int))][v,10]
+File Table:[]
+Heap:[1->22]
+Id:2
+Output:[]
+Execution Stack:print(v)
+System Table:[a,(1,Ref (int))][v,10]
+File Table:[]
+Heap:[1->22]
+Id:1
+Output:[]
+Execution Stack:Heap Writing:a,30
+System Table:[a,(1,Ref (int))][v,10]
+File Table:[]
+Heap:[1->22]
+Id:2
+Output:[]
+Execution Stack:print(Heap Reading:a)
+System Table:[a,(1,Ref (int))][v,10]
+File Table:[]
+Heap:[1->30]
+Id:1
+Output:[10]
+Execution Stack:v=32;print(v);print(Heap Reading:a)
+System Table:[a,(1,Ref (int))][v,10]
+File Table:[]
+Heap:[1->30]
+Id:2
+Output:[10]
+
+System Table:[a,(1,Ref (int))][v,10]
+File Table:[]
+Heap:[1->30]
+Id:1
+Output:[10, 30]
+Execution Stack:v=32
+System Table:[a,(1,Ref (int))][v,10]
+File Table:[]
+Heap:[1->30]
+Id:2
+Output:[10, 30]
+Execution Stack:print(v);print(Heap Reading:a)
+System Table:[a,(1,Ref (int))][v,32]
+File Table:[]
+Heap:[1->30]
+Id:2
+Output:[10, 30]
+Execution Stack:print(v)
+System Table:[a,(1,Ref (int))][v,32]
+File Table:[]
+Heap:[1->30]
+Id:2
+Output:[10, 30]
+Execution Stack:print(Heap Reading:a)
+System Table:[a,(1,Ref (int))][v,32]
+File Table:[]
+Heap:[1->30]
+Id:2
+Output:[10, 30, 32]
+
+System Table:[a,(1,Ref (int))][v,32]
+File Table:[]
+Heap:[1->30]
+Id:2
+Output:[10, 30, 32, 30]
+Execution Stack:variable declaration:v,type:int
+System Table:
+File Table:[]
+Heap:[]
+Id:1
+Output:[]
+Execution Stack:variable declaration:a,type:Ref (int);v=10;Allocation:a;Fork(Heap Writing:a,30;v=32;print(v);print(Heap Reading:a));print(v);print(Heap Reading:a)
+System Table:[v,0]
+File Table:[]
+Heap:[]
+Id:1
+Output:[]
+Execution Stack:variable declaration:a,type:Ref (int)
+System Table:[v,0]
+File Table:[]
+Heap:[]
+Id:1
+Output:[]
+Execution Stack:v=10;Allocation:a;Fork(Heap Writing:a,30;v=32;print(v);print(Heap Reading:a));print(v);print(Heap Reading:a)
+System Table:[a,(0,int)][v,0]
+File Table:[]
+Heap:[]
+Id:1
+Output:[]
+Execution Stack:v=10
+System Table:[a,(0,int)][v,0]
+File Table:[]
+Heap:[]
+Id:1
+Output:[]
+Execution Stack:Allocation:a;Fork(Heap Writing:a,30;v=32;print(v);print(Heap Reading:a));print(v);print(Heap Reading:a)
+System Table:[a,(0,int)][v,10]
+File Table:[]
+Heap:[]
+Id:1
+Output:[]
+Execution Stack:Allocation:a
+System Table:[a,(0,int)][v,10]
+File Table:[]
+Heap:[]
+Id:1
+Output:[]
+Execution Stack:Fork(Heap Writing:a,30;v=32;print(v);print(Heap Reading:a));print(v);print(Heap Reading:a)
+System Table:[a,(1,Ref (int))][v,10]
+File Table:[]
+Heap:[1->22]
+Id:1
+Output:[]
+Execution Stack:Fork(Heap Writing:a,30;v=32;print(v);print(Heap Reading:a))
+System Table:[a,(1,Ref (int))][v,10]
+File Table:[]
+Heap:[1->22]
+Id:1
+Output:[]
+Execution Stack:print(v);print(Heap Reading:a)
+System Table:[a,(1,Ref (int))][v,10]
+File Table:[]
+Heap:[1->22]
+Id:1
+Output:[]
+Execution Stack:Heap Writing:a,30;v=32;print(v);print(Heap Reading:a)
+System Table:[a,(1,Ref (int))][v,10]
+File Table:[]
+Heap:[1->22]
+Id:2
+Output:[]
+Execution Stack:print(v)
+System Table:[a,(1,Ref (int))][v,10]
+File Table:[]
+Heap:[1->22]
+Id:1
+Output:[]
+Execution Stack:Heap Writing:a,30
+System Table:[a,(1,Ref (int))][v,10]
+File Table:[]
+Heap:[1->22]
+Id:2
+Output:[]
+Execution Stack:print(Heap Reading:a)
+System Table:[a,(1,Ref (int))][v,10]
+File Table:[]
+Heap:[1->30]
+Id:1
+Output:[10]
+Execution Stack:v=32;print(v);print(Heap Reading:a)
+System Table:[a,(1,Ref (int))][v,10]
+File Table:[]
+Heap:[1->30]
+Id:2
+Output:[10]
+
+System Table:[a,(1,Ref (int))][v,10]
+File Table:[]
+Heap:[1->30]
+Id:1
+Output:[10, 30]
+Execution Stack:v=32
+System Table:[a,(1,Ref (int))][v,10]
+File Table:[]
+Heap:[1->30]
+Id:2
+Output:[10, 30]
+Execution Stack:print(v);print(Heap Reading:a)
+System Table:[a,(1,Ref (int))][v,32]
+File Table:[]
+Heap:[1->30]
+Id:2
+Output:[10, 30]
+Execution Stack:print(v)
+System Table:[a,(1,Ref (int))][v,32]
+File Table:[]
+Heap:[1->30]
+Id:2
+Output:[10, 30]
+Execution Stack:print(Heap Reading:a)
+System Table:[a,(1,Ref (int))][v,32]
+File Table:[]
+Heap:[1->30]
+Id:2
+Output:[10, 30, 32]
+
+System Table:[a,(1,Ref (int))][v,32]
+File Table:[]
+Heap:[1->30]
+Id:2
+Output:[10, 30, 32, 30]

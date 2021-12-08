@@ -1,68 +1,108 @@
 package Controller;
 import Model.PrgState;
-import Model.adt.IStack;
-import Model.stmt.IStmt;
+import Model.adt.IHeap;
+import Model.value.IValue;
+import Model.value.RefValue;
 import Repo.Repo;
 import Exception.*;
+import Exception.*;
+import java.io.IOException;
+import java.util.*;
+import java.util.concurrent.Callable;
+import java.util.concurrent.ExecutionException;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+import java.util.stream.Collectors;
 
 public class Controller {
-
     Repo repo;
+    ExecutorService executor;
 
     public Controller(Repo repo){
         this.repo = repo;
+    }
+
+    public Map<Integer, IValue> unsafeGarbageCollector(List<Integer> symTableAddr, HashMap<Integer,IValue> heap) {
+        return heap.entrySet().stream()
+                .filter(e -> symTableAddr.contains(e.getKey()))
+                .collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue));
+    }
+
+    public List<Integer> getAddrFromSymTable(Collection<IValue> symTableValues, IHeap<Integer,IValue> heap){
+        List<Integer> result = new LinkedList<>();
+        symTableValues.stream()
+                .filter(v-> v instanceof RefValue)
+                .forEach(v -> {
+                    RefValue value = (RefValue) v;
+                    result.add(value.getHeadAddress());
+                    IValue heapValue = null;
+                    heapValue = heap.lookup(value.getHeadAddress());
+                    while(heapValue instanceof RefValue){
+                        result.add(((RefValue)heapValue).getHeadAddress());
+                        heapValue = heap.lookup(((RefValue)heapValue).getHeadAddress());
+                    }
+                });
+                return result;
+    }
+
+    public Repo getRepository(){
+        return this.repo;
     }
 
     public void addProgram(PrgState newPrg) {
         repo.addPrg(newPrg);
     }
 
-    public String oneStep(PrgState state, IStack<IStmt> copy_stack,String wholeProgram) throws Exception {
-        var statement = copy_stack.pop();
-        wholeProgram += "\n";
-        wholeProgram += "\n";
-        wholeProgram += "Execution Stack:\n";
-        wholeProgram += statement.toString();
-        wholeProgram += "\nSystem Table:\n";
-        var table = state.getSymTable().getDictionary();
-        for(var stat:table.keySet()){
-            var st = "[" + stat + "," + table.get(stat) + "]"  + "\n";
-            wholeProgram += st;
-        }
-        statement.execute(state);
-        return wholeProgram;
+    List<PrgState> removeCompletedPrg(List<PrgState> inPrgList){
+        return inPrgList.stream()
+                .filter(PrgState::isNotCompleted)
+                .collect(Collectors.toList());
     }
 
-    public void allStep() throws Exception {
-        String wholeProgram = "";
-        var state = repo.getCurrentProgram();
-        var stack = state.getStack();
-        var table = state.getSymTable().getDictionary();
-        var last = stack.pop();
-        System.out.println("\n Execution Stack:");
-        wholeProgram += "Execution Stack:\n";
-        System.out.println(last);
-        wholeProgram += last.toString();
-        wholeProgram += "\n";
-        for(var statement:table.keySet()){
-            var st = "[" + statement + "," + table.get(statement) + "]"  + "\n";
-            wholeProgram += st;
+    public void oneStepForAllPrg(ArrayList<PrgState> prgList) throws InterruptedException {
+        List<Callable<PrgState>> callList = prgList.stream()
+                .map((PrgState p) -> (Callable<PrgState>)(p::oneStep))
+                .collect(Collectors.toList());
+        List<PrgState> newPrgList = executor.invokeAll(callList).stream()
+                .map(future-> {
+                    try {
+                        return future.get();
+                    } catch (ExecutionException | InterruptedException | ClassCastException e) {
+                        e.printStackTrace();
+                    }
+                   return null;
+                })
+                .filter(Objects::nonNull)
+                .collect(Collectors.toList());
+        prgList.addAll(newPrgList);
+        prgList.forEach(prg-> {
+            try {
+                repo.logPrgStateExec(prg);
+            } catch (StackException | IOException e) {
+                e.printStackTrace();
+            }
+        });
+        repo.setPrgList(prgList);
+    }
+
+    public void allStep() throws InterruptedException, RepositoryException {
+        executor = Executors.newFixedThreadPool(2);
+        var prgList = removeCompletedPrg(repo.getMyPrgStates());
+        while(prgList.size() > 0){
+            this.oneStepForAllPrg((ArrayList<PrgState>)prgList);
+            var program = repo.getPrgList();
+            program.getHeap().setContent(
+                    (HashMap<Integer, IValue>) unsafeGarbageCollector(
+                            getAddrFromSymTable(program.getSymTable().getDictionary().values(),
+                            program.getHeap()),
+                            program.getHeap().getHashMap()
+                    )
+            );
+            prgList = removeCompletedPrg(repo.getMyPrgStates());
         }
-        last.execute(state);
-        var copy_stack = state.getStack();
-        if(copy_stack.isEmpty())
-            throw new StackException("stack is empty!");
-        while(!copy_stack.isEmpty()){
-            wholeProgram = oneStep(state,copy_stack,wholeProgram);
-        }
-        var output = state.getOutput();
-        var result = "\n\n";
-        for(var el:output){
-            System.out.println("Output: " + el.toString());
-            result += "Output:" + el;
-        }
-        wholeProgram += result;
-        System.out.println(wholeProgram);
-        repo.logPrgStateExec(wholeProgram);
+        var output = repo.getOutput();
+        System.out.println("Output:" + output);
+        executor.shutdownNow();
+        repo.setPrgList((ArrayList<PrgState>) prgList);
     }
 }

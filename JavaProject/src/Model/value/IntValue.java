@@ -30,7 +30,7 @@ public class IntValue implements IValue{
 
     @Override
     public IType getType() {
-        return new IntType();
+        return new IntType().getType();
     }
 
     public int getValue(){

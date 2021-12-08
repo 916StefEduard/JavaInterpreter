@@ -1,10 +1,11 @@
 package Model.stmt;
-
 import Model.PrgState;
+import Model.adt.IDict;
 import Model.exp.Exp;
-
+import Model.types.BoolType;
+import Model.types.IType;
 import java.util.Objects;
-
+import Exception.*;
 public class IfStmt implements  IStmt{
     Exp exp;
     IStmt thenS;
@@ -23,17 +24,34 @@ public class IfStmt implements  IStmt{
 
     public PrgState execute(PrgState state) throws Exception {
         var symTbl = state.getSymTable();
-        var value = exp.eval(symTbl);
+        var heap = state.getHeap();
+        var value = exp.eval(symTbl,heap);
         if(Objects.equals(value.toString(), "true")){
             this.thenS.execute(state);
         }else{
             this.elseS.execute(state);
         }
-        return state;
+        return null;
     }
 
     @Override
     public IStmt deepcopy() {
         return new IfStmt(exp,thenS,elseS);
+    }
+
+    @Override
+    public String getStatement() {
+        return "if("+ exp.toString()+") then(" +thenS.toString()  +")else("+elseS.toString()+")";
+    }
+
+    @Override
+    public IDict<String, IType> typeCheck(IDict<String, IType> typeEnv) throws Exception {
+        var typExp = exp.typeCheck(typeEnv);
+        if(typExp.equals(new BoolType())){
+            thenS.typeCheck(typeEnv);
+            elseS.typeCheck(typeEnv);
+            return typeEnv;
+        }else
+            throw new StatementException("The condition of IF has not the type bool");
     }
 }

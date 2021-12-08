@@ -1,8 +1,9 @@
 package Model.exp;
 import Model.adt.IDict;
+import Model.adt.IHeap;
+import Model.types.IType;
 import Model.value.IValue;
 import Exception.DictionaryException;
-import Model.value.StringValue;
 
 public class VarExp implements Exp{
     String id;
@@ -11,12 +12,22 @@ public class VarExp implements Exp{
         this.id = id;
     }
 
-    public IValue eval(IDict<String, IValue> symTable) throws DictionaryException {
+    public IValue eval(IDict<String, IValue> symTable, IHeap<Integer, IValue> heap) throws DictionaryException {
         return symTable.lookup(id);
     }
 
     public String toString() {
         return id;
     }
+
+    public String getId(){
+        return this.id;
+    }
+
+    @Override
+    public IType typeCheck(IDict<String, IType> typeEnv) throws Exception {
+        return typeEnv.lookup(id);
+    }
+
 
 }
