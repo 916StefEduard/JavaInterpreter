@@ -31,5 +31,7 @@ The code also contains a grabage collector made with Java Streams that will elim
 
 
 
-For better user experience, I have also created a GUI version with the JavaFX library.
+For a better user experience, I have also created a GUI version with the JavaFX library.
+All of the Tables described above are represented in a table with listview or tableview and by pressing the RunStep button we will
+see the tables filling up with the corresponding data.
 ![image](https://user-images.githubusercontent.com/72076037/146274498-9cb75f67-7a07-4d18-942c-010278771bdb.png)
