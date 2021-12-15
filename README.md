@@ -28,3 +28,5 @@ The statement above contains the fork statement, which will split the program in
 The fork has two statements, one of which has the next statements outside of the fork statement.
 Also, the ref variable means that the data will be allocated to the heap.
 The code also contains a grabage collector made with Java Streams that will eliminate unnecessary memory from the heap.
+
+![image](https://user-images.githubusercontent.com/72076037/146274498-9cb75f67-7a07-4d18-942c-010278771bdb.png)
