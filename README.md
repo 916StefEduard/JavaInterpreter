@@ -30,5 +30,6 @@ Also, the ref variable means that the data will be allocated to the heap.
 The code also contains a grabage collector made with Java Streams that will eliminate unnecessary memory from the heap.
 
 
-For better user experience, I have created a GUI version with the JavaFx library.
+
+For better user experience, I have also created a GUI version with the JavaFX library.
 ![image](https://user-images.githubusercontent.com/72076037/146274498-9cb75f67-7a07-4d18-942c-010278771bdb.png)
