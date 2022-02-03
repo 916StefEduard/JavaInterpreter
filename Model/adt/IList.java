@@ -1,10 +1,9 @@
-package Model.adt;
-import Exception.ListException;
+package model.adt;
+
 public interface IList<T> {
     void add(T v);
-    T pop() throws ListException;
+    T pop();
+    boolean isEmpty();
     String toString();
-    boolean empty();
-    void clear();
-    boolean contains(T key);
+    T get(int index);
 }

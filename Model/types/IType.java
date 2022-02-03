@@ -1,11 +1,10 @@
-package Model.types;
+package model.types;
 
-import Model.value.IValue;
+import model.values.IValue;
 
 public interface IType {
-    IValue defaultValue();
+    boolean equals(Object other);
+    IValue getDefault();
     IType deepCopy();
-    IType getType();
     String toString();
-    boolean equals(Object o);
 }

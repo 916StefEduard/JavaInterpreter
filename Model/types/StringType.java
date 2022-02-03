@@ -1,17 +1,13 @@
-package Model.types;
+package model.types;
 
-import Model.value.IValue;
-import Model.value.StringValue;
+import model.values.IValue;
+import model.values.StringValue;
 
-public class StringType implements IType{
+public class StringType implements IType {
+
     @Override
-    public IValue defaultValue() {
+    public IValue getDefault() {
         return new StringValue();
-    }
-
-    @Override
-    public boolean equals(Object o){
-        return o != null && o.getClass() == this.getClass();
     }
 
     @Override
@@ -20,12 +16,12 @@ public class StringType implements IType{
     }
 
     @Override
-    public IType getType() {
-        return new StringType();
+    public boolean equals(Object other) {
+        return other instanceof StringType;
     }
 
     @Override
-    public String toString(){
+    public String toString() {
         return "string";
     }
 }

@@ -1,12 +1,8 @@
-package Model.adt;
-import Exception.StackException;
-public interface IStack<T> {
+package model.adt;
 
-    T pop() throws StackException;
+public interface IStack<T> {
     void push(T v);
+    T pop();
     boolean isEmpty();
     String toString();
-    int getSize();
-    public T top();
 }
-

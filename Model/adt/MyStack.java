@@ -1,37 +1,18 @@
-package Model.adt;
-import Exception.StackException;
+package model.adt;
+
+import java.util.ListIterator;
 import java.util.Stack;
 
 public class MyStack<T> implements IStack<T> {
-    Stack<T> stack;
+    private final Stack<T> stack;
 
     public MyStack(){
-        stack = new Stack<T>();
+        stack = new Stack<>();
     }
 
     @Override
-    public T pop() throws StackException {
-        if(stack.isEmpty()){
-            throw new StackException("stack is empty");
-        }
+    public T pop() {
         return stack.pop();
-    }
-
-    @Override
-    public T top(){
-        if(stack.size() != 0)
-            return stack.get(stack.size()-1);
-        else
-            return null;
-    }
-
-    public MyStack<T> reverse() {
-        var newStack = new MyStack<T>();
-        var copyStack = this.stack;
-        while(!copyStack.isEmpty()){
-            newStack.push(copyStack.pop());
-        }
-        return newStack;
     }
 
     @Override
@@ -45,7 +26,12 @@ public class MyStack<T> implements IStack<T> {
     }
 
     @Override
-    public int getSize() {
-        return this.stack.size();
+    public String toString() {
+        StringBuilder stringBuilder = new StringBuilder();
+        ListIterator<T> stackIterator = stack.listIterator(stack.size());
+        while (stackIterator.hasPrevious()) {
+            stringBuilder.append(stackIterator.previous().toString()).append('\n');
+        }
+        return stringBuilder.toString();
     }
 }

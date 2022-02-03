@@ -1,142 +1,151 @@
-package Model;
-import Model.adt.*;
-import Model.stmt.IStmt;
-import Model.value.IValue;
-import Model.value.StringValue;
+package model;
+
+import exceptions.MyException;
+import exceptions.PrgStateException;
+import javafx.util.Pair;
+import model.adt.*;
+import model.statements.IStmt;
+import model.values.IValue;
+import model.values.StringValue;
+
 import java.io.BufferedReader;
-import java.util.*;
-import Exception.*;
+import java.util.List;
 
 public class PrgState {
+    private IStack<IStmt> exeStack;
+    private IDict<String, IValue> symTable;
+    private IDict<StringValue, BufferedReader> fileTable;
+    private IHeap<IValue> heapTable;
+    private IList<String> out;
+    private IStmt originalProgram;
+    private Integer id = 1;
+    private ILockTable<Integer,Integer> lockTable;
+    private ILatchTable<Integer,Integer> latchTable;
+    private ISem semaphore;
+    public static Integer lastID = 1;
 
-    IStack<IStmt> exeStack;
-    IDict<String, IValue> symTable;
-    IDict<StringValue, BufferedReader> fileTable;
-    IHeap<Integer,IValue> heap;
-    ArrayList<IValue> out;
-    IStmt originalProgram;
-    int id;
+    public PrgState(IStmt originalProgram) {
+        exeStack = new MyStack<>();
+        symTable = new MyDict<>();
+        fileTable = new MyDict<>();
+        heapTable = new MyHeap<>();
+        lockTable = new LockTable<>();
+        latchTable = new LatchTable<>();
+        semaphore = new Sem();
+        out = new MyList<>();
+        this.originalProgram = originalProgram.deepCopy();
+        exeStack.push(originalProgram);
+    }
 
-    public PrgState(IStack<IStmt> stack, IDict<String, IValue> symTable, ArrayList<IValue> out,IDict<StringValue,BufferedReader> filetable, IHeap<Integer,IValue> heap,IStmt program,int id){
-        this.exeStack = stack;
-        this.symTable= symTable;
+    public PrgState(IStack<IStmt> exeStack, IDict<String, IValue> symTable, IDict<StringValue, BufferedReader> fileTable, IHeap<IValue> heapTable,
+                    IList<String> out, IStmt originalProgram,ILockTable<Integer,Integer> lockTable,ILatchTable<Integer,Integer> latchTable,ISem semaphore) {
+        this.exeStack = exeStack;
+        this.symTable = symTable;
         this.out = out;
-        this.originalProgram = program.deepcopy();
-        this.fileTable = filetable;
-        this.heap = heap;
-        this.id = id;
-        stack.push(program);
+        this.heapTable = heapTable;
+        this.fileTable = fileTable;
+        this.originalProgram = originalProgram.deepCopy();
+        this.lockTable = lockTable;
+        this.latchTable = latchTable;
+        this.semaphore = semaphore;
+        exeStack.push(originalProgram);
     }
 
-    public IStmt getOriginalProgram(){
-        return this.originalProgram;
+    public PrgState(IStack<IStmt> exeStack, IDict<String, IValue> symTable, IDict<StringValue, BufferedReader> fileTable, IHeap<IValue> heapTable, IList<String> out
+            ,ILockTable<Integer,Integer> lockTable,ILatchTable<Integer,Integer> latchTable,ISem semaphore) {
+        this.exeStack = exeStack;
+        this.symTable = symTable;
+        this.out = out;
+        this.heapTable = heapTable;
+        this.fileTable = fileTable;
+        this.lockTable = lockTable;
+        this.latchTable = latchTable;
+        this.semaphore = semaphore;
     }
 
-    public ArrayList<IValue> getOutput() {
-        return this.out;
+    public ISem getSemaphore(){
+        return this.semaphore;
+    }
+
+    public ILatchTable<Integer,Integer> getLatchTable(){
+        return this.latchTable;
+    }
+
+    public ILockTable<Integer,Integer> getLockTable(){
+        return this.lockTable;
+    }
+
+    public boolean isNotCompleted() {
+        return !exeStack.isEmpty();
+    }
+
+    public int getId(){
+        return this.id;
+    }
+
+    public PrgState oneStep() throws MyException {
+        if (exeStack.isEmpty()) {
+            throw new PrgStateException("Execution stack is empty!");
+        }
+        IStmt currentStmt = exeStack.pop();
+        return currentStmt.execute(this);
+    }
+
+    public synchronized void setID() {
+        lastID++;
+        id = lastID;
+    }
+
+    public PrgState deepCopy() {
+        return new PrgState(exeStack, symTable, fileTable, heapTable, out, originalProgram,lockTable,latchTable,semaphore);
+    }
+
+    public IStack<IStmt> getExeStack() {
+        return exeStack;
+    }
+
+    public void setExeStack(IStack<IStmt> exeStack) {
+        this.exeStack = exeStack;
     }
 
     public IDict<String, IValue> getSymTable() {
-        return this.symTable;
+        return symTable;
     }
 
-    public void setId(int newId){
-        this.id = newId;
-    }
-
-    public IDict<String,IValue> getSymTableDeepCopy(){
-        Dict<String,IValue> dict = new Dict<String,IValue>();
-        for(var el:this.symTable.getDictionary().keySet()){
-            dict.add(el,symTable.getDictionary().get(el));
-        }
-        return dict;
-    }
-
-    public IDict<StringValue,BufferedReader> getFiletable(){
-        return this.fileTable;
-    }
-
-    public IStack<IStmt> getStack(){
-        return this.exeStack;
-    }
-
-    public IHeap<Integer,IValue>getHeap(){
-        return this.heap;
-    }
-
-    public boolean isNotCompleted(){
-        return !this.exeStack.isEmpty();
-    }
-
-
-    public void setOutput(ArrayList<IValue> output) {
-        this.out = output;
-    }
-
-    public void setSymTable(IDict<String,IValue> symTable){
+    public void setSymTable(IDict<String, IValue> symTable) {
         this.symTable = symTable;
     }
 
-    public void setExeStack(IStack<IStmt> stack){
-        this.exeStack = stack;
+    public IList<String> getOut() {
+        return out;
     }
 
-    public void setFileTable(IDict<StringValue,BufferedReader> fileTable){
+    public void setOut(IList<String> out) {
+        this.out = out;
+    }
+
+    public IStmt getOriginalProgram() {
+        return originalProgram;
+    }
+
+    public IDict<StringValue, BufferedReader> getFileTable() {
+        return fileTable;
+    }
+
+    public void setFileTable(IDict<StringValue, BufferedReader> fileTable) {
         this.fileTable = fileTable;
     }
 
-    public void setHeap(Map<Integer,IValue> hashMap){
-         this.heap.createHeap(hashMap);
+    public IHeap<IValue> getHeapTable() {
+        return heapTable;
     }
 
-    public  int getId(){
-        return id;
+    public void setHeapTable(IHeap<IValue> heapTable) {
+        this.heapTable = heapTable;
     }
 
-    public PrgState getPrgState(){
-        var newStack = new MyStack<IStmt>();
-        return new PrgState(newStack,this.symTable,this.out,this.fileTable,this.heap,this.originalProgram,this.id);
-    }
-
-    public String SliceString(String path){
-        StringBuilder normalPath = new StringBuilder();
-        for(int i=53 ; i<path.length(); ++i){
-            normalPath.append(path.charAt(i));
-        }
-        return normalPath.toString();
-    }
-
-    public String toString(IStmt currentStmt){
-        String wholeProgram = "";
-        wholeProgram += "Id:" + id + "\n";
-        wholeProgram += "Execution Stack:" + currentStmt.toString();
-        wholeProgram += "\nSystem Table:";
-        for(var element:this.symTable.getDictionary().keySet()){
-            wholeProgram += "[" + element + "," + this.symTable.getDictionary().get(element) + "]";
-        }
-        wholeProgram += "\nFile Table:";
-        if(this.fileTable.getDictionary().isEmpty()) {
-            wholeProgram += "[" + "]";
-        }
-        for(var element:fileTable.getDictionary().keySet()){
-            wholeProgram += "[" + this.SliceString(String.valueOf(element)) + "]";
-        }
-        wholeProgram += "\nHeap:";
-        if(this.heap.getHashMap().isEmpty()) {
-            wholeProgram += "[" + "]";
-        }
-        for(var element:heap.getHashMap().keySet()){
-            wholeProgram += "[" + element.toString() + "->" + heap.getHashMap().get(element).toString() + "]";
-        }
-        wholeProgram += "\n";
-        return wholeProgram;
-    }
-
-    public PrgState oneStep() throws Exception {
-        if(exeStack.isEmpty())
-            throw new Exception("PrgState stack is empty\n");
-        var currentStmt = exeStack.pop();
-        System.out.println(this.toString(currentStmt));
-        return currentStmt.execute(this);
+    @Override
+    public String toString() {
+        return String.format("ID: %s\nExecution stack:\n%s\nSymbol table:\n%s\nHeap table:\n%s\nOutput:\n%s\nFile table:\n%s\n------------------------", id, exeStack, symTable, heapTable, out, fileTable.keysToString());
     }
 }

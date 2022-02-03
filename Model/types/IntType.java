@@ -1,17 +1,13 @@
-package Model.types;
+package model.types;
 
-import Model.value.IValue;
-import Model.value.IntValue;
+import model.values.IValue;
+import model.values.IntValue;
 
-public class IntType implements IType{
-    @Override
-    public IValue defaultValue() {
-        return new IntValue(0);
-    }
+public class IntType implements IType {
 
     @Override
-    public boolean equals(Object o) {
-        return o != null && o.getClass() == this.getClass();
+    public IValue getDefault() {
+        return new IntValue();
     }
 
     @Override
@@ -20,12 +16,12 @@ public class IntType implements IType{
     }
 
     @Override
-    public IType getType() {
-        return new IntType();
+    public boolean equals(Object other) {
+        return other instanceof IntType;
     }
 
     @Override
-    public String toString(){
+    public String toString() {
         return "int";
     }
 }

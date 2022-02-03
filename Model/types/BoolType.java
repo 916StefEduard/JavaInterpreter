@@ -1,17 +1,13 @@
-package Model.types;
+package model.types;
 
-import Model.value.BoolValue;
-import Model.value.IValue;
+import model.values.BoolValue;
+import model.values.IValue;
 
-public class BoolType implements IType{
-    @Override
-    public IValue defaultValue() {
-        return new BoolValue(false);
-    }
+public class BoolType implements IType {
 
     @Override
-    public boolean equals(Object o) {
-        return o != null && o.getClass() == this.getClass();
+    public IValue getDefault() {
+        return new BoolValue();
     }
 
     @Override
@@ -20,12 +16,12 @@ public class BoolType implements IType{
     }
 
     @Override
-    public IType getType() {
-        return new BoolType();
+    public boolean equals(Object another) {
+        return another instanceof BoolType;
     }
 
     @Override
-    public String toString(){
+    public String toString() {
         return "bool";
     }
 }
